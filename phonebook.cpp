@@ -124,16 +124,15 @@ void deleteRecord()
   if (flag == 0)
     cout << "\nthe Record of Serial Number " << n << " is not in file.....\n";
   remove("PhoneBook.dat");
-  renmae("Temp.dat", "PhoneBook.dat");
+  rename("Temp.dat", "PhoneBook.dat");
 }
 
-void modifyRecord()
+void modifynumber()
 {
   fstream fin;
   int n, flag = 0, pos;
-  fin.open("PhoneBook.dat", ios::out | ios::binary | ios::app)
-          cout
-      << "Enter Serail Number of Record To Modify : ";
+  fin.open("PhoneBook.dat", ios::out | ios::binary | ios::app);
+  cout << "Enter Serial Number of Record To Modify : ";
   cin >> n;
   while (fin.read((char *)&b, sizeof(b)))
   {
@@ -162,8 +161,9 @@ void menu()
   int ch;
   do
   {
-    clrscr();
-    cout << "......................................................................................\n";
+    system("cls");
+    cout
+        << "......................................................................................\n";
     cout << "                             PHONE BOOK MANAGEMENT\n ";
     cout << "......................................................................................\n";
     cout << ":::::::::::::::::::::::::::::::::  PROGRAM MENU  :::::::::::::::::::::::::::::::::::::::\n";
@@ -175,7 +175,8 @@ void menu()
     cout << "5. Modify Existing Record\n";
     cout << "Enter your Choice : ";
     cin >> ch;
-    clrscr() switch (ch)
+    system("cls");
+    switch (ch)
     {
     case 1:
       AddNumber();
@@ -197,7 +198,7 @@ void menu()
   } while (ch);
 }
 
-void main()
+int main()
 {
   menu();
 }
